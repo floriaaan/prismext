@@ -4,7 +4,6 @@
   "description": "A plug'n'play backoffice for any NextJS app using Prisma",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "format": "prettier --write \"src/**/*.ts\"",
@@ -19,7 +18,12 @@
   "files": [
     "dist/**/*"
   ],
-  "keywords": ["backoffice", "prisma", "nextjs", "plug'n'play"],
+  "keywords": [
+    "backoffice",
+    "prisma",
+    "nextjs",
+    "plug'n'play"
+  ],
   "author": "floriaaan",
   "license": "MIT",
   "devDependencies": {
@@ -28,6 +32,7 @@
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
     "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
     "next": "^13.4.4",
     "prettier": "^2.8.8",
     "prisma": "^4.15.0",
