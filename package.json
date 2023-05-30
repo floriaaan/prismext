@@ -1,0 +1,45 @@
+{
+  "name": "prismext",
+  "version": "0.1.0",
+  "description": "A plug'n'play backoffice for any NextJS app using Prisma",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint --ext .ts,.tsx .",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "keywords": ["backoffice", "prisma", "nextjs", "plug'n'play"],
+  "author": "floriaaan",
+  "license": "MIT",
+  "devDependencies": {
+    "@prisma/client": "^4.15.0",
+    "@types/node": "^20.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "eslint": "^8.41.0",
+    "next": "^13.4.4",
+    "prettier": "^2.8.8",
+    "prisma": "^4.15.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "@prisma/client": "^4.15.0",
+    "next": "^13.4.4",
+    "prisma": "^4.15.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

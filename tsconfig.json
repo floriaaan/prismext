@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "strictNullChecks": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "strict": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "stripInternal": true,
+    "skipDefaultLibCheck": true,
+    "outDir": "dist",
+    "baseUrl": "./src",
+    "paths": {
+      "@prismext/*": ["*"],
+      "@prismext/examples/*": ["../examples/*"],
+      "next": ["node_modules/next"],
+      "react": ["node_modules/react"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*", "examples/*"]
+}
