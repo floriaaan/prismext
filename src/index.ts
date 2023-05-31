@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { PrismaClient } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
-import { PrismextOptions, Query } from "@prismext/types";
-import { discover } from "@prismext/actions/discover";
-import { describe } from "@prismext/actions/describe";
-import { send } from "@prismext/utils/send";
+import { PrismextOptions, Query } from "./types";
+import { discover } from "./actions/discover";
+import { describe } from "./actions/describe";
+import { send } from "./utils/send";
 
 /*
   FIX #1:
@@ -45,6 +45,14 @@ const Prismext = (options: PrismextOptions) => async (req: NextApiRequest, res: 
         );
     }
 
+    if (method === "POST") {
+      if (prismext_action === "query" && model && action === "create") {
+        const { body } = req;
+        // @ts-ignore // TODO: fix #1
+        return send(res, 201, await prisma[model].create({ data: body }));
+      }
+    }
+
     throw {
       code: 400,
       message: "Bad Request",
@@ -53,13 +61,22 @@ const Prismext = (options: PrismextOptions) => async (req: NextApiRequest, res: 
       cause: {
         method: { expected: "GET", actual: method },
         action: {
-          expected: ["count", "findMany", "findUnique"],
+          supported: ["count", "findMany", "findUnique", "create"],
           actual: action,
         },
       },
     };
   } catch (error) {
-    return send(res, 500, { error });
+    console.error(error);
+    return send(res, 500, {
+      error: {
+        ...error,
+        code: error.code ?? 500,
+        name: error.name ?? "INTERNAL_SERVER_ERROR",
+        message: error instanceof Error ? error.message : "Internal Server Error",
+        cause: error.cause ?? {},
+      },
+    });
   } finally {
     if (options.prisma?.instance === undefined) await prisma.$disconnect();
   }

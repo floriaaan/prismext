@@ -5,10 +5,11 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "dev": "tsc-watch --onSuccess \"babel --config-file ./config/babel.config.js src --out-dir dist --extensions \".tsx,.ts,.js,.jsx\"\"",
     "test": "echo \"Error: no test specified\" && exit 0",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ext .ts,.tsx .",
-    "build": "tsc",
+    "build": "pnpm tsc --project tsconfig.json && babel --config-file ./config/babel.config.js src --out-dir dist --extensions \".tsx,.ts,.js,.jsx\"",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
@@ -27,6 +28,13 @@
   "author": "floriaaan",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.22.1",
+    "@babel/plugin-proposal-optional-catch-binding": "^7.18.6",
+    "@babel/plugin-transform-runtime": "^7.22.4",
+    "@babel/preset-env": "^7.22.4",
+    "@babel/preset-react": "^7.22.3",
+    "@babel/preset-typescript": "^7.21.5",
     "@prisma/client": "^4.15.0",
     "@types/node": "^20.2.5",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
@@ -38,6 +46,7 @@
     "prisma": "^4.15.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tsc-watch": "^6.0.4",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
@@ -46,5 +55,8 @@
     "prisma": "^4.15.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.22.3"
   }
 }

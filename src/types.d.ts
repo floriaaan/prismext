@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 export type PrismextAction = "discover" | "describe" | "query";
 export type Model = string;
-export type Action = "count" | "findMany" | "findUnique";
+export type Action = "count" | "findMany" | "findUnique" | "create";
 export type Id = string;
 export type Params = string[];
 
