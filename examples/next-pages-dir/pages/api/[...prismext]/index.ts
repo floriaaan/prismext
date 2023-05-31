@@ -1,3 +1,8 @@
 import Prismext from "prismext";
+import prisma from "lib/prisma";
 
-export default Prismext({});
+export default Prismext({
+  prisma: {
+    instance: prisma,
+  },
+});

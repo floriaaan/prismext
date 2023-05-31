@@ -6,7 +6,7 @@ type GlobalWithPrisma = typeof globalThis & {
 };
 
 const OPTIONS: Prisma.PrismaClientOptions = {
-  log: process.env.NEXT_PUBLIC_APP_ENV !== "production" ? ["info", "warn"] : undefined,
+  log: process.env.NEXT_PUBLIC_APP_ENV !== "production" ? ["info", "warn", "query"] : undefined,
 };
 
 if (process.env.NODE_ENV === "production") {
