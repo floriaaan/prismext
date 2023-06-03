@@ -1,10 +1,5 @@
 lockfileVersion: '6.0'
 
-dependencies:
-  '@babel/runtime':
-    specifier: ^7.22.3
-    version: 7.22.3
-
 devDependencies:
   '@babel/cli':
     specifier: ^7.21.5
@@ -27,6 +22,9 @@ devDependencies:
   '@babel/preset-typescript':
     specifier: ^7.21.5
     version: 7.21.5(@babel/core@7.22.1)
+  '@babel/runtime':
+    specifier: ^7.22.3
+    version: 7.22.3
   '@prisma/client':
     specifier: ^4.15.0
     version: 4.15.0(prisma@4.15.0)
@@ -1413,6 +1411,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
+    dev: true
 
   /@babel/template@7.21.9:
     resolution: {integrity: sha512-MK0X5k8NKOuWRamiEfc3KEJiHMTkGZNUjzMipqCGDDc6ijRl/B7RGSKVGncu4Ro/HdyzzY6cmoXuKI2Gffk7vQ==}
@@ -2853,6 +2852,7 @@ packages:
 
   /regenerator-runtime@0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
+    dev: true
 
   /regenerator-transform@0.15.1:
     resolution: {integrity: sha512-knzmNAcuyxV+gQCufkYcvOqX/qIIfHLv0u5x79kRxuGojfYVky1f15TzZEu2Avte8QGepvUNTnLskf8E6X6Vyg==}
