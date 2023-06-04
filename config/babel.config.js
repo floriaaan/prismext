@@ -5,22 +5,26 @@
 
 /** @type {import("@babel/core").ConfigFunction} */
 module.exports = {
-  presets: [["@babel/preset-env", { targets: { node: 12 } }], "@babel/preset-typescript"],
+  presets: [
+    ["@babel/preset-env", { targets: { node: 12 } }],
+    "@babel/preset-typescript",
+    ["@babel/react", { runtime: "automatic" }],
+  ],
   plugins: ["@babel/plugin-proposal-optional-catch-binding", "@babel/plugin-transform-runtime"],
   ignore: ["../examples/**"],
   comments: false,
   overrides: [
-    //   {
-    //     test: ["../src/react/index.tsx", "../src/utils/logger.ts", "../src/core/errors.ts", "../src/client/**"],
-    //     presets: [
-    //       ["@babel/preset-env", { targets: { ie: 11 } }],
-    //       ["@babel/preset-react", { runtime: "automatic" }],
-    //     ],
-    //   },
-    //   {
-    //     test: ["../src/core/pages/*.tsx"],
-    //     presets: ["react"],
-    //     plugins: [["jsx-pragmatic", { module: "react", import: "React" }]],
-    //   },
+    // {
+    //   test: ["../src/packages/client/**"],
+    //   presets: [
+    //     ["@babel/preset-env", { targets: { ie: 11 } }],
+    //     ["@babel/preset-react", { runtime: "automatic" }],
+    //   ],
+    // },
+    // {
+    //   test: ["../src/packages/client/pages/*.tsx"],
+    //   presets: ["react"],
+    //   plugins: [["jsx-pragmatic", { module: "react", import: "React" }]],
+    // },
   ],
 };

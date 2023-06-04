@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { PrismextGlobal } from "types";
+import { PrismextGlobal } from "packages/api/types";
 
 export const discover = async (prisma: PrismaClient) => {
   const provider_queries = {

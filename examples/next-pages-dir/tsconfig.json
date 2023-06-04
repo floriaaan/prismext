@@ -15,7 +15,7 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "prismext": ["../../dist/index.js"],
+      "prismext/*": ["../../dist/*"],
       "@example/*": ["./*"],
     },
     "noEmit": true
