@@ -16,8 +16,21 @@ export type PrismextOptions = {
 
   prisma?: {
     schemaPath?: string;
-    clientPath?: string;
     clientOptions?: unknown;
     instance?: PrismaClient;
+  };
+};
+
+export type PrismextGlobal = {
+  prismext: {
+    forceInProduction: boolean;
+    debug: boolean;
+    prisma: {
+      schemaPath: string;
+      clientOptions: unknown;
+      instance: PrismaClient;
+      provider: string;
+      models: { name: string; database: string }[];
+    };
   };
 };

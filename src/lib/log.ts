@@ -23,6 +23,7 @@ const getInitiator = () => {
 const error = (args: any) => {
   process.stderr.write(`- ${utils.red("prismext:error")} log on ${getInitiator()}\n`);
   if ("cause" in args) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { cause, ...rest } = args;
     process.stderr.write(JSON.stringify(rest, null, 2));
     process.stderr.write("\n");
