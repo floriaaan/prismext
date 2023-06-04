@@ -64,21 +64,39 @@ You can check the [Prismext Types](https://github.com/floriaaan/prismext/tree/ma
 ### Add API Route
 
 ```javascript
-// pages/api/[...prismext]/index.js
-import Prismext from "prismext";
+// pages/api/[...prismext]/index.(js|ts)
+import { Prismext } from "prismext";
 import prisma from "lib/prisma";
 
-export default Prismext({});
+export default Prismext({
+  prisma: {
+    // You can bring your own prisma instance
+    instance: prisma,
+  },
+});
 ```
 
 ### Add Prismext page
 
-`TO BE COMPLETED`
+```jsx
+// pages/prismext.(js|tsx) (or any other path, e.g. pages/admin/prismext.tsx)
+import { PrismextPage } from "prismext/client";
+
+// You can add a GetServerSideProps function to manage access to the page (with cookies or Nextauth.js for example)
+
+const PrismextClient = () => {
+  {
+    /* You can add your own components here such as a "middleware" */
+  }
+  return <PrismextPage />;
+};
+
+export default PrismextClient;
+```
 
 ## Security
 
 If you think you have found a vulnerability (or not sure) in Prismext, please open Pull Requests/Issues/Discussions.
-
 
 ## Contributing
 

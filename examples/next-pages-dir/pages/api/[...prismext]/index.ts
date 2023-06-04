@@ -1,4 +1,4 @@
-import Prismext from "prismext";
+import { Prismext } from "prismext";
 import prisma from "lib/prisma";
 
 export default Prismext({
